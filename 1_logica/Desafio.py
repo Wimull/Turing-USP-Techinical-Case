@@ -28,19 +28,17 @@ def micro_grupos(pessoas, amizades):
         membrosDictionary[relationship[0]].nova_relação(relationship[1])
         membrosDictionary[relationship[1]].nova_relação(relationship[0])
 
-    membrosKeys = []
-    membrosKeys.extend(membrosDictionary.keys())
-    
-    for id in membrosKeys:                      #Navigates the tree by calling a subroutine, assings found tree to "groups" then clears the buffer
+    searchesTodo = []
+    searchesTodo.extend(membrosDictionary.keys())
+
+#Navigates the tree by calling a subroutine, assinings found tree to "groups", removing explored objects from the list of searches to do, and then clearing the buffer
+    for id in searchesTodo:
         tree_navigator (membrosDictionary[id].relações)
         if groups.count(uniqueInTree) == 0: 
             groups.extend([uniqueInTree.copy()])
-            for i in uniqueInTree: membrosKeys.remove(i)
+            for i in uniqueInTree: searchesTodo.remove(i)
         uniqueInTree.clear()
 
     return len(groups)
-
-
-
 
 print (micro_grupos(7, [[1,2],[2,3],[3,1],[3,4],[6,5],[5,7]])) #Expected output: 2
