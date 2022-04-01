@@ -41,4 +41,4 @@ def micro_grupos(pessoas, amizades):
 
     return len(groups)
 
-print (micro_grupos(7, [[1,2],[2,3],[3,1],[3,4],[6,5],[5,7]])) #Expected output: 2
+#print (micro_grupos(7, [[1,2],[2,3],[3,1],[3,4],[6,5],[5,7]])) #Expected output: 2
