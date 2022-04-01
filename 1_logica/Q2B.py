@@ -1,22 +1,22 @@
-def estado_atual(TAMANHO, horários, INSTANTE):
+def estado_atual(TAMANHO, horarios, INSTANTE):
     class Carro:                                  #Defines a class (cars) with an id, moment of entry and position in the parking lot
         def __init__(self, entrada, id):
             self.entrada = entrada
             self.id = id
-            self.posição = 0
+            self.lugar_no_estacionamento = 0
 
         def position(self, momento):
-            self.posição = momento - self.entrada #Uptades the position of the car based on the rule that the car moves one position in the parking lot each instant
-            if (self.posição < TAMANHO) & (self.posição > -1): return self.posição
-            return -1                             #Calculates the position of the car based on the instant given or, if the car has moved out of the parking lot, returns -1
+            self.lugar_no_estacionamento = momento - self.entrada #Uptades the position of the car based on the rule that the car moves one position in the parking lot each instant
+            if (self.lugar_no_estacionamento < TAMANHO) & (self.lugar_no_estacionamento > -1): return self.lugar_no_estacionamento
+            return -1                             #Calculates the position of the car based on the instant given or, if the car has moved out of the parking lot or hasn't arrieved yet, returns -1
 
     
     estacionamento = []                           #Defines a parking lot as an array of length "TAMANHO" filled with 0's
     for x in range(0, TAMANHO):
         estacionamento.append(0)
 
-    for i in range(1, len(horários) + 1):
-        i = Carro(horários[i - 1], i)
+    for i in range(1, len(horarios) + 1):
+        i = Carro(horarios[i - 1], i)
         if i.position(INSTANTE) > -1:
             estacionamento[i.position(INSTANTE)] = i.id
     return estacionamento                         #Returns an array with the id of the car in that position, or zero if that position is empty
