@@ -18,6 +18,6 @@ def estacionamento_ok(TAMANHO, instantes):
     if len(estacionamento) != 0: return "não"        #Checks to see if at the end of instructions, "estacionamento" is empty and if not, returns "no"
     return "sim"                                     #Returns yes if all checks passed
 
-print(estacionamento_ok(3,[1,2,-2,3,-3,-1]))         #Expected output: "sim"
+#print(estacionamento_ok(3,[1,2,-2,3,-3,-1]))         #Expected output: "sim"
 #print(estacionamento_ok(3,[1,2,-2,3,5,-3,-1,-5]))   #Expected output: "não"
-print(estacionamento_ok(5,[1,2,3,4,3,-4,-3,-2,-1]))   #Expected output: "não"
+#print(estacionamento_ok(5,[1,2,3,4,3,-4,-3,-2,-1]))   #Expected output: "não"
